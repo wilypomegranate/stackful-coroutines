@@ -9,9 +9,10 @@
 @RCC offset 0x4002 1000
 @GPIOC offset 0x4001 1000
 
-ldr r0, =0x00000010
-ldr r1, =0x40021018
-str r0, [r1]			@ Set IOPCEN bit in RCC_APB2ENR to 1 to enable GPIOC
+ldr r1, =0x40021018 @ Address of RCC_APB2ENR.
+ldr r0, [r1] @ Load the current value of RCC_APB2ENR into r0.
+orr r0, #10 @ Set the specific bits to enable 10MHZ output on GPIOC.
+str r0, [r1] @ Write new value to RCC_APB2ENR.
 
 ldr r0, =0x44544444
 ldr r1, =0x40011004
