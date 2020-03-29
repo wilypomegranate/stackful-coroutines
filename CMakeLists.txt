@@ -14,3 +14,4 @@ SET(CMAKE_EXE_LINKER_FLAGS "-Ttext=0x8000000")
 set(CMAKE_ASM_LINK_EXECUTABLE "<CMAKE_LINKER> <OBJECTS> -o <TARGET> <LINK_FLAGS>")
 
 add_executable(prog1.elf prog1.s)
+add_executable(prog2.elf prog2.s)
