@@ -11,11 +11,11 @@
 
 ldr r1, =0x40021018 @ Address of RCC_APB2ENR.
 ldr r0, [r1] @ Load the current value of RCC_APB2ENR into r0.
-orr r0, #0x00000010 @ Set the specific bits to enable 10MHZ output on GPIOC.
+orr r0, #0x00000010 @ Set bit to enable GPIOC clock.
 str r0, [r1] @ Write new value to RCC_APB2ENR.
 
-ldr r0, =0x44544444
-ldr r1, =0x40011004
+ldr r0, =0x44544444 @ Set the specific bits to enable 10MHZ output on GPIOC.
+ldr r1, =0x40011004 @ Location of GPIOC register.
 str r0, [r1]
 
 ldr r0, =0x2000
