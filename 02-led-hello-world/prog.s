@@ -34,9 +34,9 @@ ldr r0, =0x2000
 ldr r1, =0x40011010
 str r0, [r1]
 
-ldr r2, =1000000
+ldr r0, =1000000
 delay1:
-subs r2, #1
+subs r0, #1
 bne delay1 @ Iterate until 0.
 
 @ Set to low, turn LED on.
@@ -45,9 +45,9 @@ ldr r0, =0x20000000
 ldr r1, =0x40011010
 str r0, [r1]
 
-ldr r2, =1000000
+ldr r0, =1000000
 delay2:
-subs r2, #1
+subs r0, #1
 bne delay2 @ Iterate until 0.
 
 b BlinkLoop
