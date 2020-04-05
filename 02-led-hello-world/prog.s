@@ -25,8 +25,29 @@ and r0, #0xff2fffff
 orr r0, #0x200000
 str r0, [r1]
 
+BlinkLoop:
+
+@ Set to high, turn LED off.
+@ Yes it is wired this way.
 ldr r0, =0x2000
-ldr r1, =0x40011014
+@ldr r0, =0x20000000
+ldr r1, =0x40011010
 str r0, [r1]
 
-b .
+ldr r2, =1000000
+delay1:
+subs r2, #1
+bne delay1 @ Iterate until 0.
+
+@ Set to low, turn LED on.
+@ Yes it is wired this way.
+ldr r0, =0x20000000
+ldr r1, =0x40011010
+str r0, [r1]
+
+ldr r2, =1000000
+delay2:
+subs r2, #1
+bne delay2 @ Iterate until 0.
+
+b BlinkLoop
