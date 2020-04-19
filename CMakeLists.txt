@@ -15,3 +15,4 @@ set(CMAKE_ASM_LINK_EXECUTABLE "<CMAKE_LINKER> <OBJECTS> -o <TARGET> <LINK_FLAGS>
 
 add_executable(intro.elf 01-intro/prog.s)
 add_executable(led-hello-world.elf 02-led-hello-world/prog.s)
+add_executable(led-blink.elf 03-led-blink/prog.s)
